@@ -88,20 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cardWrapper.addEventListener('mouseleave', resetCard);
 
-    /* --- Touch Tracking (Mobile) --- */
-    cardWrapper.addEventListener('touchmove', (e) => {
-        const touch = e.touches[0];
-        const rect = cardWrapper.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        
-        const xRatio = (touch.clientX - centerX) / (rect.width / 2);
-        const yRatio = (touch.clientY - centerY) / (rect.height / 2);
 
-        applyTiltAndGlare(xRatio, yRatio);
-    }, { passive: true });
-
-    cardWrapper.addEventListener('touchend', resetCard);
 
 
     // Prevent double tap zoom on mobile
