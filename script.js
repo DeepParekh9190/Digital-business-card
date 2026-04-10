@@ -29,11 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.navigator.vibrate) {
             window.navigator.vibrate(10);
         }
-        
-        // Temporarily reset rotation so flip happens cleanly
-        card.style.transform = isFlipped ? `rotateY(180deg)` : `rotateX(0deg) rotateY(0deg)`;
     }
-
 
 
 

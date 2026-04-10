@@ -47,7 +47,7 @@ body {
 .card {
     position: relative;
     width: 100%;
-    aspect-ratio: 0.56; /* Taller vertical proportion for mobile */
+    aspect-ratio: 0.60; /* Taller vertical proportion for mobile */
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
