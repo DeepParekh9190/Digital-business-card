@@ -103,21 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cardWrapper.addEventListener('touchend', resetCard);
 
-    /* --- Device Gyroscope Tracking (Mobile native feel) --- */
-    if (window.DeviceOrientationEvent) {
-        window.addEventListener('deviceorientation', (e) => {
-            // e.gamma = left/right tilt [-90, 90]
-            // e.beta = front/back tilt [-180, 180]
-            
-            if (e.gamma !== null && e.beta !== null) {
-                // Normalize roughly to [-1, 1] range for gentle tilts
-                let xRatio = e.gamma / 45; 
-                let yRatio = (e.beta - 45) / 45; // Assumes holding phone at 45deg angle
-
-                applyTiltAndGlare(xRatio, yRatio);
-            }
-        });
-    }
 
     // Prevent double tap zoom on mobile
     let lastTouchTime = 0;

@@ -30,12 +30,12 @@ body {
 
 .app-container {
     width: 100%;
-    max-width: 480px;
+    max-width: 500px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px;
+    padding: 10px; /* Reduced from 24px to make card larger on mobile */
 }
 
 /* 3D Scene */
@@ -389,7 +389,7 @@ body {
 }
 
 .preloader-logo {
-    width: 120px;
+    width: 200px; /* Increased from 120px */
     height: auto;
     filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0));
     animation: preloaderPulse 2.5s infinite ease-in-out;
@@ -413,7 +413,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px;
+    padding: 10px; /* Reduced from 24px to make card larger on mobile */
     position: relative;
     z-index: 10;
 }
