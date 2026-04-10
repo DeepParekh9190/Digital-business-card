@@ -25,24 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
     function flipCard() {
         isFlipped = !isFlipped;
         card.classList.toggle('is-flipped');
-        
-        if (window.navigator.vibrate) {
-            window.navigator.vibrate(10);
-        }
     }
-
-
-
-
-
-    // Prevent double tap zoom on mobile
-    let lastTouchTime = 0;
-    document.addEventListener('touchend', (e) => {
-        if(e.target.closest('a') || e.target.closest('button')) return; // Allow link taps
-        const now = Date.now();
-        if (now - lastTouchTime < 300) {
-            e.preventDefault();
-        }
-        lastTouchTime = now;
-    }, { passive: false });
 });
