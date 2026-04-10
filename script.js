@@ -34,59 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transform = isFlipped ? `rotateY(180deg)` : `rotateX(0deg) rotateY(0deg)`;
     }
 
-    /* 3. 3D Tilt & Glare Engine */
-    function applyTiltAndGlare(xRatio, yRatio) {
-        // xRatio and yRatio are typically between -1 and 1
-        
-        // Cap ratios to prevent extreme flips
-        const cappedX = Math.max(-1, Math.min(1, xRatio));
-        const cappedY = Math.max(-1, Math.min(1, yRatio));
 
-        // Tilt effect (max 15 degrees)
-        // Note: if flipped, we need to invert Y rotation mentally or just apply it properly
-        let rotateX = cappedY * -15; 
-        let rotateY = cappedX * 15;
-
-        if (isFlipped) {
-            // When flipped, base is 180deg
-            card.style.transform = `rotateY(${180 + rotateY}deg) rotateX(${-rotateX}deg)`;
-        } else {
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        }
-
-        // Glare shift (move the gradient based on angle)
-        // Gradient width is 200%, so shifting translate by +/- 50% moves the shine
-        const translateX = -50 + (cappedX * -30);
-        const translateY = -50 + (cappedY * -30);
-        
-        glares.forEach(glare => {
-            glare.style.transform = `translate(${translateX}%, ${translateY}%) rotate(0deg)`;
-            glare.style.opacity = '1';
-        });
-    }
-
-    function resetCard() {
-        card.style.transform = isFlipped ? `rotateY(180deg)` : `rotateX(0deg) rotateY(0deg)`;
-        cardWrapper.classList.remove('active');
-        glares.forEach(glare => {
-            glare.style.opacity = '0';
-        });
-    }
-
-    /* --- Mouse Tracking --- */
-    cardWrapper.addEventListener('mousemove', (e) => {
-        cardWrapper.classList.add('active');
-        const rect = cardWrapper.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        
-        const xRatio = (e.clientX - centerX) / (rect.width / 2);
-        const yRatio = (e.clientY - centerY) / (rect.height / 2);
-
-        applyTiltAndGlare(xRatio, yRatio);
-    });
-
-    cardWrapper.addEventListener('mouseleave', resetCard);
 
 
 
