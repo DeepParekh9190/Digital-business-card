@@ -168,16 +168,18 @@ body {
 
 .footer-hint {
     position: absolute;
-    bottom: 25px;
-    left: 40px;
-    font-size: 0.7rem;
-    font-weight: 600;
+    bottom: 30px;
+    left: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-main);
     letter-spacing: 2px;
     text-transform: uppercase;
-    opacity: 0.4;
     display: flex;
     align-items: center;
     gap: 8px;
+    z-index: 10;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
 }
 
 .footer-hint::after {
@@ -361,8 +363,8 @@ body {
 
 /* Animations */
 @keyframes pulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.8; }
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
 .footer-hint {
