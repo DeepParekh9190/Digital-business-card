@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Touch (Mobile) ---
     card.addEventListener('touchstart', (e) => {
-        if(e.target.closest('a') || e.target.closest('button')) return;
+        if(e.target && e.target.closest && (e.target.closest('a') || e.target.closest('button'))) return;
         startX = e.touches[0].clientX;
         isDragging = true;
         isSwiping = false;
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Mouse (Desktop) ---
     card.addEventListener('mousedown', (e) => {
-        if(e.target.closest('a') || e.target.closest('button')) return;
+        if(e.target && e.target.closest && (e.target.closest('a') || e.target.closest('button'))) return;
         startX = e.clientX;
         isDragging = true;
         isSwiping = false;
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Tap / Click ---
     card.addEventListener('click', (e) => {
-        if(e.target.closest('a') || e.target.closest('button')) return;
+        if(e.target && e.target.closest && (e.target.closest('a') || e.target.closest('button'))) return;
         
         // Block the click flip if the user was actually dragging
         if(isSwiping) return; 
